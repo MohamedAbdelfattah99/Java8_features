@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.function.Predicate;
 
 public class main {
 
@@ -11,12 +12,14 @@ public class main {
 		
 		users.add(new login("mostafa", "123465451"));
 		
+		Predicate<login> rule=(p)->p.isWeak()==false;
 		
 		// foreaach
 		for (login user : users) {
+			if(rule.test(user)) {
 			System.out.println("username ="+user.userName);
 			System.out.println("password ="+user.pasword);
-		}
+		}}
 		
 		//iterator 
 		Iterator<login>ite=users.iterator();
